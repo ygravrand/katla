@@ -7,7 +7,7 @@
 
 from lxml import etree
 
-from component import Component
+from .component import Component
 
 
 class Tag(object):
