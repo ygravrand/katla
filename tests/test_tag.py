@@ -7,7 +7,7 @@
 
 import unittest
 
-from katla import attributes
+from katla import transforms
 from katla.tag import tag
 
 from .utils import render_tag
@@ -17,8 +17,8 @@ class TestTag(unittest.TestCase):
 
     div = tag('div')
     span = tag('span', ('alt',))
-    a = tag('a', {'className': attributes.className,
-                  'style': attributes.style})
+    a = tag('a', {'className': transforms.className,
+                  'style': transforms.style})
 
     def test_tags_and_text(self):
         d = self.div()

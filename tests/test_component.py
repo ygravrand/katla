@@ -7,9 +7,9 @@
 
 import unittest
 
-from katla import attributes
+from katla import transforms
 from katla.component import Component
-from katla.renderer import BaseRenderer, base_attributes
+from katla.renderer import BaseRenderer, base_transforms
 from katla.tag import tag
 
 from .utils import render_tag
@@ -29,7 +29,7 @@ class B(Component):
 
 class Renderer(BaseRenderer):
 
-    div = tag('div', base_attributes)
+    div = tag('div', base_transforms)
 
 
 class TestComponent(unittest.TestCase):

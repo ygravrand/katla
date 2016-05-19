@@ -11,8 +11,20 @@ from component import Component
 
 
 class Tag(object):
+    """Tag is the base class to render HTML tags"""
 
     def __init__(self, name, attrs_transforms):
+        """Init a tag.
+           :param name: Name of the tag to use in output
+           :param attrs_transforms: either:
+           - a dictionary of {``attribute_name``:``attribute_transform``},
+             each ``attribute_transform`` being a function:
+               :param name: Original attribute name
+               :param value: Original attribute value
+               :return: A (``name``, ``value``) tuple with the new attribute name and value
+           - a list of allowed attribute names
+           - None to apply no transform and disable restriction on attribute names
+        """
         self._name = name
         self._attrs_transforms = None
         if attrs_transforms is None:
@@ -44,7 +56,6 @@ class Tag(object):
                 self._set_text(tree, child)
             # TODO comment case
             elif isinstance(child, Component):
-                print 'COMP CASE'
                 res = child.render(self._renderer)
                 if res is not None:
                     tree.append(res)
@@ -66,4 +77,5 @@ class Tag(object):
 
 
 def tag(name, attrs_transforms=None):
+    """Creates a ``Tag``, see ``Tag:__init__`` for documentation"""
     return Tag(name, attrs_transforms)

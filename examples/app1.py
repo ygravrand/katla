@@ -7,7 +7,7 @@
 
 from werkzeug.wrappers import Request, Response
 
-from katla.renderer import HTML5Renderer
+from katla.renderer import HTMLRenderer
 
 from app1_root import Root
 
@@ -18,7 +18,7 @@ class App(object):
         self.root = Root()
 
     def dispatch_request(self, request):
-        res = HTML5Renderer().render(self.root)
+        res = HTMLRenderer().render(self.root)
         return Response(res.to_html_string(), mimetype='text/html')
 
     def wsgi_app(self, environ, start_response):

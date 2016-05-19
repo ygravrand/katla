@@ -3,6 +3,9 @@
     katla
     :copyright: (c) 2016 by Yann Gravrand.
     :license: BSD, see LICENSE for more details.
+
+    The ``transforms`` module defines usual transforms on attributes,
+    e.g. "className" --> "class"
 """
 
 def className(name, val):

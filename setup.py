@@ -21,8 +21,7 @@ setup(
     packages=find_packages(),
     zip_safe=True,
     install_requires=(
-        'werkzeug',
         'lxml',
     ),
-    extras_require={'test': ('pytest',)}
+    extras_require={'test': ('pytest', 'werkzeug')}
 )
