@@ -15,5 +15,5 @@ def render_tag(tag):
                          pretty_print=False,
                          xml_declaration=False,
                          doctype=None)
-    print res
+    print(res)
     return res

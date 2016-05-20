@@ -4,6 +4,13 @@
     :copyright: (c) 2016 by Yann Gravrand.
     :license: BSD, see LICENSE for more details.
 """
+# Python 3 handling
+try:
+    unicode = unicode
+except NameError:
+    str, unicode, bytes, basestring = str, str, bytes, (str, bytes)
+else:
+    str, unicode, bytes, basestring = str, unicode, str, basestring
 
 from lxml import etree
 

@@ -38,12 +38,12 @@ class TestComponent(unittest.TestCase):
         a = A()
         r = Renderer()
         self.assertEquals(render_tag(a.render(r)),
-                          '<div class="greetings">Hello World </div>',
+                          b'<div class="greetings">Hello World </div>',
                           'Simple component rendering')
 
     def test_composition(self):
         b = B()
         r = Renderer()
         self.assertEquals(render_tag(b.render(r)),
-                          '<div class="wrapper">Wrapped: <div class="greetings">Hello World </div><div class="greetings">Hello World </div></div>',
+                          b'<div class="wrapper">Wrapped: <div class="greetings">Hello World </div><div class="greetings">Hello World </div></div>',
                           'Simple component rendering')
