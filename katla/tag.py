@@ -4,6 +4,11 @@
     :copyright: (c) 2016 by Yann Gravrand.
     :license: BSD, see LICENSE for more details.
 """
+from lxml import etree
+
+from .component import Component
+
+
 # Python 3 handling
 try:
     unicode = unicode
@@ -12,13 +17,9 @@ except NameError:
 else:
     str, unicode, bytes, basestring = str, unicode, str, basestring
 
-from lxml import etree
-
-from .component import Component
-
 
 class Tag(object):
-    """Tag is the base class to render HTML tags"""
+    """``Tag`` is the base class to render HTML tags"""
 
     def __init__(self, name, attrs_transforms):
         """Init a tag.

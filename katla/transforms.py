@@ -8,13 +8,13 @@
     e.g. "className" --> "class"
 """
 
+from . import styles
+
 def className(name, val):
     return 'class', val
 
 
 def style(name, val):
     if isinstance(val, dict):
-        return (name, '; '.join(['%s: %s' %
-                                (attr_name, attr_value) for \
-                                attr_name, attr_value in val.items()]))
+        return name, styles.to_string(val)
     return name, val

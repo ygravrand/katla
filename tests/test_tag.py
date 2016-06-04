@@ -7,7 +7,7 @@
 
 import unittest
 
-from katla import transforms
+from katla import styles, transforms
 from katla.tag import tag
 
 from .utils import render_tag
@@ -61,10 +61,11 @@ class TestTag(unittest.TestCase):
                           b'<a class="link">Link</a>',
                           'Attribute transform: className example')
 
-        d = self.a('Link', style={'display': 'none',
-                                  'text-decoration': 'underline'})
+        st = {'display': 'none',
+              'text-decoration': 'underline'}
+        d = self.a('Link', style=st)
         self.assertEquals(render_tag(d),
-                          b'<a style="display: none; text-decoration: underline">Link</a>',
+                          b'<a style="%s">Link</a>' % styles.to_string(st),
                           'Attribute transform: style example')
 
 
